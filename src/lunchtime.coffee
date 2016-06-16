@@ -56,7 +56,7 @@ queryYelp = (msg, usrLocation, category) ->
       return
       
     if res.statusCode isnt 200
-      msg.send "Error occurred: #{res.statusCode} error text: #{body.error.text}"
+      msg.send "Error occurred: #{res.statusCode} error text: #{body}"
       return
         
     response = JSON.parse(body)
