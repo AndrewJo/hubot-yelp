@@ -71,7 +71,7 @@ queryYelp = (msg, usrLocation, category) ->
       msg.send "Couldn't find a place to eat there. Try again."
 
 module.exports = (robot) ->
-  robot.respond /lunchtime\W*(near (.*) thats (.*)|near (.*)|thats (.*))?/i, (msg) ->
+  robot.respond /(lunchtime|noms)\W*(near (.*) thats (.*)|near (.*)|thats (.*))?/i, (msg) ->
     matches = msg.match
     usrLocation = matches[2] or matches[4] or ''
     category = matches[3] or matches[5] or ''
