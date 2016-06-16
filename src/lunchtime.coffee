@@ -49,6 +49,7 @@ queryYelp = (msg, usrLocation, category) ->
   signature = oauth.generate('GET', 'https://api.yelp.com/v2/search/', params, CONSUMER_SECRET, TOKEN_SECRET, { encodeSignature: false})
   params.oauth_signature = signature
   
+  msg.send "Searching for #{params.term} near #{location}"
   msg.http('https://api.yelp.com/v2/search/').query(params).get() (err, res, body) ->
     
     if err
